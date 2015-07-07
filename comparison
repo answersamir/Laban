@@ -1,0 +1,24 @@
+* xml
+** Advantages
+1. More library support.
+2. Memory required is less (Hardly relevant)
+3. Supports STRUCTURED DATA FORMAT Language.
+** Libraries
+ UGGGHH! Many. Element tree looks good.
+
+* yml 
+Not technically a mark-up language.
+** Advantages
+1.   Easier to read and edit.
+2.   Just like a data format.
+3.   YAML was designed using Python, Perl, Ruby! All scripting languages.
+4.   Supports STRUCTURED DATA INTERCHANGE FORMAT Language.   
+** Libraries
+1. Pyyaml : Python Parser (Suits our purpose)
+2. Syck : More gen
+* PyQt and yml 
+PyQT4 is a binding. We can use the .ui files provided by QtDesinger <xml> and then add a python script to convert <xml> 
+to yaml which is a lot more usable .
+We could also try to ignore the xml file and generate our own yaml , which might not involve the QtDesigner advantages.
+ 
+ 
