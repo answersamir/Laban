@@ -1,0 +1,21 @@
+type: map
+mapping:
+    key: 
+       type: seq
+       required: True
+       sequence:
+       - type: int
+       - type: int
+       - type: int
+       - type: int
+       - type: str
+              
+    stave:
+       type: seq
+       required: True
+       sequence: 
+       - type: int
+       - type: int
+       - type: int
+       - type: int
+       - type: str  
