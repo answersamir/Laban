@@ -1,6 +1,7 @@
 from pprint import pprint
 import yaml
 from yaml import dump,load 
+from pykwalify.core import Core
 
 #mydic->dictionary of entire .yml file
 
@@ -13,8 +14,14 @@ def func_write(mydic,f):
 
 
 if __name__== '__main__':
-
-        f1=open("sample.yml")
+#schema validation code
+        c=Core(source_file="sample.yaml",schema_files=["schema.yaml"])
+        try: 
+             c.validate(raise_exception = True)
+             print "Perfectly valid yaml file"
+        except:
+             print "Problem in validating"
+        f1=open("sample.yaml")
         sample=yaml.load(f1)
         f2=open("sample.lbn","w+")
         f2.seek(0)
@@ -22,7 +29,4 @@ if __name__== '__main__':
         f1.close()
         f2.close()    
 
-'''# print li (just to test)
-   for x in range(0,len(li)):
-      f.write(str(li[x])+" ")
-   f.write("\n")'''
+
