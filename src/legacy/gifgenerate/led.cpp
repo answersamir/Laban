@@ -1997,12 +1997,14 @@ void createbars(void)
 /**********************************************/
 
 void unbar(void)
+
 /*
    remove bar lines and numbers
 
    called by drawbars,
    calls     delseg,
 */
+
 {
    int j;
    int i,m;
@@ -2017,18 +2019,18 @@ void unbar(void)
          delseg(j);
       }
       else
-      if ( (m == MKEYS) && 
-			((segs[j].x < xlimit)||(segs[j].level == 'B')) )
+      if ( (m == MKEYS) && ( (segs[j].x < xlimit) || (segs[j].level == 'B')) )
       {
-			i = segs[j].item;
-         if ((i > 0)&&(i != 16)&&(i != 17))
-         {
-            delseg(j);
-         }
+	i = segs[j].item;
+	if( ((i>5) && (i<8)) || (i>13) && (i!=17) ) //numbers, C, _ symbols wont disappear
+	  delseg(j);
       }
    }
    barn = 0;
-} /* unbar */
+}
+
+
+ /* unbar */
 /***************************************************/
 
 void setbarsp(void)
@@ -4949,6 +4951,9 @@ void mouseclick(GLint b, GLint action, GLint mx, GLint mmy)
       target = segdown;
       tm = segs[target].menu;
       tj = segs[target].item;
+      
+      printf("\n----MOUSECLICK---down---menu--target----> %d - %d \n",tm,tj);
+
       if ((target <= 0) || (target >= scoretop)
          || (tj < 0) || (tm < 0) || (tm > SCORE)
          || ((tj > NSYMS)&&(tm != MBARS)))
